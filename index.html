@@ -1,107 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Ajeet Kumar Dadhich</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            box-sizing: border-box;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        p {
-            line-height: 1.6;
-            color: #555;
-            text-align: justify;
-        }
-        .skills {
-            margin-top: 40px;
-        }
-        .skill {
-            margin-bottom: 30px;
-        }
-        .skill h3 {
-            color: #4CAF50;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .skill p {
-            color: #777;
-        }
-        .skill-icons {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .skill-icon {
-            text-align: center;
-            margin: 10px;
-        }
-        .skill-icon img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 3px solid #4CAF50;
-            transition: all 0.3s ease;
-        }
-        .skill-icon img:hover {
-            transform: scale(1.1);
-            border-color: #59D359;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Developer Ajeet Kumar Dadhich</h1>
-        <p>Hello, I'm Ajeet Kumar Dadhich, a DevOps Architect passionate about building robust and scalable systems. With a blend of development and operations expertise, I specialize in optimizing processes, improving efficiency, and ensuring seamless deployments.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevOps Architect Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha384-UK8zKNSYkX7BLhBqNvKiieATBSy8+BoHp7NZSv1b7uT+7G3kQV5F2SB1dk5bR0MT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-        <div class="skills">
-            <h2>Skills</h2>
-            <div class="skill-icons">
-                <div class="skill-icon">
-                    <img src="cloud.png" alt="Cloud Computing">
-                    <p>Cloud Computing</p>
-                </div>
-                <div class="skill-icon">
-                    <img src="ci-cd.png" alt="CI/CD">
-                    <p>CI/CD</p>
-                </div>
-                <div class="skill-icon">
-                    <img src="containerization.png" alt="Containerization">
-                    <p>Containerization</p>
-                </div>
-                <div class="skill-icon">
-                    <img src="infrastructure-as-code.png" alt="Infrastructure as Code">
-                    <p>Infrastructure as Code</p>
-                </div>
-                <div class="skill-icon">
-                    <img src="monitoring-logging.png" alt="Monitoring and Logging">
-                    <p>Monitoring & Logging</p>
-                </div>
-                <div class="skill-icon">
-                    <img src="automation.png" alt="Automation">
-                    <p>Automation</p>
-                </div>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+      <div class="container">
+        <h1>Welcome to the DevOps Architect Portfolio</h1>
+        <p>
+          Hello, I'm John Doe, a seasoned DevOps Architect with over 10 years of
+          experience in designing and implementing DevOps solutions for various
+          organizations.
+        </p>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>
+          I am an experienced DevOps Architect specializing in designing and
+          implementing DevOps practices to accelerate software development and
+          improve operational efficiency. With a strong background in software
+          development and infrastructure management, I have successfully led
+          numerous DevOps transformations for organizations across different
+          industries.
+        </p>
+        <p>My expertise includes:</p>
+        <ul>
+          <li>Continuous Integration and Continuous Deployment (CI/CD)</li>
+          <li>Infrastructure as Code (IaC) using tools like Terraform</li>
+          <li>Containerization with Docker and Kubernetes</li>
+          <li>Automated Testing and Quality Assurance</li>
+          <li>Monitoring and Logging</li>
+          <li>Cloud Platforms (AWS, Azure, GCP)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="container">
+        <h2>Skills</h2>
+        <div class="skills-container">
+          <div class="skill">
+            <h3>Continuous Integration/Continuous Deployment (CI/CD)</h3>
+            <div class="progress">
+              <div class="progress-in" per="90%"></div>
             </div>
+          </div>
+          <div class="skill">
+            <h3>Infrastructure as Code (IaC)</h3>
+            <div class="progress">
+              <div class="progress-in" per="85%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <h3>Containerization (Docker, Kubernetes)</h3>
+            <div class="progress">
+              <div class="progress-in" per="80%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <h3>Automated Testing</h3>
+            <div class="progress">
+              <div class="progress-in" per="85%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <h3>Cloud Platforms (AWS, Azure, GCP)</h3>
+            <div class="progress">
+              <div class="progress-in" per="90%"></div>
+            </div>
+          </div>
         </div>
-    </div>
-</body>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="projects-container">
+          <!-- Project 1 -->
+          <div class="project">
+            <h3>Project Name 1</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              fermentum nisi a justo sodales, nec hendrerit velit egestas.
+            </p>
+            <ul>
+              <li>Technology Used 1</li>
+              <li>Technology Used 2</li>
+              <li>Technology Used 3</li>
+            </ul>
+          </div>
+          <!-- Project 2 -->
+          <div class="project">
+            <h3>Project Name 2</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              fermentum nisi a justo sodales, nec hendrerit velit egestas.
+            </p>
+            <ul>
+              <li>Technology Used 1</li>
+              <li>Technology Used 2</li>
+              <li>Technology Used 3</li>
+            </ul>
+          </div>
+          <!-- Project 3 -->
+          <div class="project">
+            <h3>Project Name 3</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              fermentum nisi a justo sodales, nec hendrerit velit egestas.
+            </p>
+            <ul>
+              <li>Technology Used 1</li>
+              <li>Technology Used 2</li>
+              <li>Technology Used 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <h2>Contact Me</h2>
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <div class="icon"><i class="fa fa-phone"></i></div>
+            <h4>Call Me On</h4>
+            <p>+123 456 7890</p>
+          </div>
+          <div class="contact-info-item">
+            <div class="icon"><i class="fa fa-envelope"></i></div>
+            <h4>Email</h4>
+            <p>john.doe@example.com</p>
+          </div>
+          <div class="contact-info-item">
+            <div class="icon"><i class="fa fa-globe-asia"></i></div>
+            <h4>Website</h4>
+            <p>www.johndoe.com</p>
+          </div>
+          <div class="contact-info-item">
+            <div class="icon"><i class="fa fa-mobile-alt"></i></div>
+            <h4>WhatsApp</h4>
+            <p>+123 456 7890</p>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Send Me an Email</h3>
+          <form onsubmit="sendEmail(); return false;">
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Your Email" />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Message"></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 DevOps Architect Portfolio</p>
+    </footer>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/script.js"></script>
+    <script src="js/style-switcher.js"></script>
+  </body>
 </html>
