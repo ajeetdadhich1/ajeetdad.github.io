@@ -48,6 +48,17 @@
             padding: 10px;
             margin-bottom: 10px;
         }
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
     </style>
 </head>
 <body>
@@ -87,6 +98,8 @@
                 issueHTML += '<strong>Name:</strong> ' + issue.name + '<br>';
                 issueHTML += '<strong>Email:</strong> ' + issue.email + '<br>';
                 issueHTML += '<strong>Issue:</strong> ' + issue.issue + '<br>';
+                // Add delete button only for admin
+                issueHTML += '<button class="delete-btn" onclick="deleteIssue(' + index + ')">Delete</button>';
                 issueHTML += '</div>';
                 issuesDiv.innerHTML += issueHTML;
             });
@@ -127,6 +140,21 @@
             document.getElementById("email").value = "";
             document.getElementById("issue").value = "";
         });
+
+        // Function to delete issue
+        function deleteIssue(index) {
+            // Retrieve existing issues from local storage
+            var issues = JSON.parse(localStorage.getItem("issues")) || [];
+
+            // Remove issue at given index
+            issues.splice(index, 1);
+
+            // Store updated issues array in local storage
+            localStorage.setItem("issues", JSON.stringify(issues));
+
+            // Display updated issues
+            displayIssues();
+        }
     </script>
 </body>
 </html>
