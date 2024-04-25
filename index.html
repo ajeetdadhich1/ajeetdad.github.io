@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajeet Kumar Dadhich</title>
+    <title>Developer Ajeet Kumar Dadhich</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,143 +19,59 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        input[type="text"], textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
+        h1 {
+            text-align: center;
+            color: #333;
         }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        h2 {
+            color: #4CAF50;
         }
-        input[type="submit"]:hover {
-            background-color: #45a049;
+        p {
+            line-height: 1.6;
+            color: #666;
         }
-        .issue-list {
+        .skills {
             margin-top: 20px;
         }
-        .issue-item {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
+        .skill {
             margin-bottom: 10px;
         }
-        .delete-btn {
-            background-color: #f44336;
-            color: white;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
+        .skill h3 {
+            color: #555;
         }
-        .delete-btn:hover {
-            background-color: #d32f2f;
+        .skill p {
+            color: #777;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Ajeet Kumar Dadhich</h1>
-        <h2>Report an Issue with Spark</h2>
-        <form id="issueForm">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required>
+        <h1>Developer Ajeet Kumar Dadhich</h1>
+        <p>Hello, I'm Ajeet Kumar Dadhich, a DevOps Architect passionate about building robust and scalable systems. With a blend of development and operations expertise, I specialize in optimizing processes, improving efficiency, and ensuring seamless deployments.</p>
 
-            <label for="email">Your Email:</label>
-            <input type="text" id="email" name="email" required>
-
-            <label for="issue">Issue:</label>
-            <textarea id="issue" name="issue" rows="4" required></textarea>
-
-            <input type="submit" value="Submit Issue">
-        </form>
-
-        <div class="issue-list">
-            <h2>Submitted Issues</h2>
-            <div id="issues"></div>
+        <div class="skills">
+            <h2>Skills</h2>
+            <div class="skill">
+                <h3>Cloud Computing</h3>
+                <p>I have extensive experience in cloud computing platforms such as AWS, Azure, and Google Cloud. I can design, deploy, and manage cloud-based solutions efficiently.</p>
+            </div>
+            <div class="skill">
+                <h3>Continuous Integration/Continuous Deployment (CI/CD)</h3>
+                <p>I am proficient in setting up automated CI/CD pipelines using tools like Jenkins, GitLab CI/CD, and CircleCI, ensuring rapid and reliable software delivery.</p>
+            </div>
+            <div class="skill">
+                <h3>Containerization</h3>
+                <p>I have expertise in containerization technologies like Docker and container orchestration tools such as Kubernetes. I can containerize applications and manage them at scale.</p>
+            </div>
+            <div class="skill">
+                <h3>Infrastructure as Code (IaC)</h3>
+                <p>I am skilled in infrastructure as code practices using tools like Terraform and CloudFormation, enabling infrastructure provisioning and management through code.</p>
+            </div>
+            <div class="skill">
+                <h3>Monitoring and Logging</h3>
+                <p>I have experience in setting up monitoring and logging systems using tools like Prometheus, Grafana, ELK Stack, and CloudWatch, ensuring high availability and performance.</p>
+            </div>
         </div>
     </div>
-
-    <script>
-        // Function to display issues
-        function displayIssues() {
-            var issuesDiv = document.getElementById("issues");
-            issuesDiv.innerHTML = ""; // Clear previous issues
-
-            // Retrieve issues from local storage
-            var issues = JSON.parse(localStorage.getItem("issues")) || [];
-
-            // Loop through issues and display them
-            issues.forEach(function(issue, index) {
-                var issueHTML = '<div class="issue-item">';
-                issueHTML += '<strong>Name:</strong> ' + issue.name + '<br>';
-                issueHTML += '<strong>Email:</strong> ' + issue.email + '<br>';
-                issueHTML += '<strong>Issue:</strong> ' + issue.issue + '<br>';
-                // Add delete button only for admin
-                issueHTML += '<button class="delete-btn" onclick="deleteIssue(' + index + ')">Delete</button>';
-                issueHTML += '</div>';
-                issuesDiv.innerHTML += issueHTML;
-            });
-        }
-
-        // Display existing issues on page load
-        displayIssues();
-
-        // Event listener for form submission
-        document.getElementById("issueForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent default form submission
-            // Get form data
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
-            var issue = document.getElementById("issue").value;
-            
-            // Create object to hold issue data
-            var issueData = {
-                name: name,
-                email: email,
-                issue: issue
-            };
-            
-            // Retrieve existing issues from local storage
-            var issues = JSON.parse(localStorage.getItem("issues")) || [];
-
-            // Add new issue to issues array
-            issues.push(issueData);
-
-            // Store updated issues array in local storage
-            localStorage.setItem("issues", JSON.stringify(issues));
-
-            // Display updated issues
-            displayIssues();
-
-            // Clear form
-            document.getElementById("name").value = "";
-            document.getElementById("email").value = "";
-            document.getElementById("issue").value = "";
-        });
-
-        // Function to delete issue
-        function deleteIssue(index) {
-            // Retrieve existing issues from local storage
-            var issues = JSON.parse(localStorage.getItem("issues")) || [];
-
-            // Remove issue at given index
-            issues.splice(index, 1);
-
-            // Store updated issues array in local storage
-            localStorage.setItem("issues", JSON.stringify(issues));
-
-            // Display updated issues
-            displayIssues();
-        }
-    </script>
 </body>
 </html>
