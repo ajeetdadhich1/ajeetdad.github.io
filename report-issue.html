@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Issue - Spark Application</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Report Issue - Spark Application</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="report-issue.html">Report Issue</a></li>
+          <li><a href="admin-panel.html">Admin Panel</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="issue-form">
+        <div class="container">
+          <h2>Report an Issue</h2>
+          <form action="submit-issue.php" method="post">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="issue">Issue:</label>
+              <textarea id="issue" name="issue" required></textarea>
+            </div>
+            <input type="hidden" id="ticket" name="ticket" />
+            <button type="submit" class="btn">Submit</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 Spark Application. All rights reserved.</p>
+    </footer>
+    <script>
+      // Generate unique ticket number
+      document.getElementById("ticket").value = "000000001"; // Temporary placeholder
+    </script>
+  </body>
+</html>
