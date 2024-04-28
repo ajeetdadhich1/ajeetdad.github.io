@@ -8,44 +8,122 @@
   </head>
   <body>
     <header>
-      <h1>Report Issue - Spark Application</h1>
+      <h1>Report an Issue with Spark</h1>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="report-issue.html">Report Issue</a></li>
-          <li><a href="admin-panel.html">Admin Panel</a></li>
         </ul>
       </nav>
     </header>
-    <main>
-      <section id="issue-form">
-        <div class="container">
-          <h2>Report an Issue</h2>
-          <form action="submit-issue.php" method="post">
-            <div class="form-group">
-              <label for="name">Name:</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div class="form-group">
-              <label for="issue">Issue:</label>
-              <textarea id="issue" name="issue" required></textarea>
-            </div>
-            <input type="hidden" id="ticket" name="ticket" />
-            <button type="submit" class="btn">Submit</button>
-          </form>
+
+    <main class="container">
+      <form id="issueForm">
+        <div class="form-group">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="name" required />
         </div>
-      </section>
+
+        <div class="form-group">
+          <label for="email">Your Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="issue">Issue:</label>
+          <textarea id="issue" name="issue" rows="4" required></textarea>
+        </div>
+
+        <button type="submit">Submit Issue</button>
+      </form>
+
+      <div class="issue-list">
+        <h2>Submitted Issues</h2>
+        <div id="issues"></div>
+      </div>
     </main>
+
     <footer>
-      <p>&copy; 2024 Spark Application. All rights reserved.</p>
+      <p>&copy; 2024 Ajeet Kumar Dadhich</p>
     </footer>
+
     <script>
-      // Generate unique ticket number
-      document.getElementById("ticket").value = "000000001"; // Temporary placeholder
+      // Function to display issues
+      function displayIssues() {
+        var issuesDiv = document.getElementById("issues");
+        issuesDiv.innerHTML = ""; // Clear previous issues
+
+        // Retrieve issues from local storage
+        var issues = JSON.parse(localStorage.getItem("issues")) || [];
+
+        // Loop through issues and display them
+        issues.forEach(function (issue, index) {
+          var issueHTML = '<div class="issue-item">';
+          issueHTML += "<strong>Name:</strong> " + issue.name + "<br>";
+          issueHTML += "<strong>Email:</strong> " + issue.email + "<br>";
+          issueHTML += "<strong>Issue:</strong> " + issue.issue + "<br>";
+          // Add delete button only for admin
+          issueHTML +=
+            '<button class="delete-btn" onclick="deleteIssue(' +
+            index +
+            ')">Delete</button>';
+          issueHTML += "</div>";
+          issuesDiv.innerHTML += issueHTML;
+        });
+      }
+
+      // Display existing issues on page load
+      displayIssues();
+
+      // Event listener for form submission
+      document
+        .getElementById("issueForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
+          // Get form data
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var issue = document.getElementById("issue").value;
+
+          // Create object to hold issue data
+          var issueData = {
+            name: name,
+            email: email,
+            issue: issue,
+          };
+
+          // Retrieve existing issues from local storage
+          var issues = JSON.parse(localStorage.getItem("issues")) || [];
+
+          // Add new issue to issues array
+          issues.push(issueData);
+
+          // Store updated issues array in local storage
+          localStorage.setItem("issues", JSON.stringify(issues));
+
+          // Display updated issues
+          displayIssues();
+
+          // Clear form
+          document.getElementById("name").value = "";
+          document.getElementById("email").value = "";
+          document.getElementById("issue").value = "";
+        });
+
+      // Function to delete issue
+      function deleteIssue(index) {
+        // Retrieve existing issues from local storage
+        var issues = JSON.parse(localStorage.getItem("issues")) || [];
+
+        // Remove issue at given index
+        issues.splice(index, 1);
+
+        // Store updated issues array in local storage
+        localStorage.setItem("issues", JSON.stringify(issues));
+
+        // Display updated issues
+        displayIssues();
+      }
     </script>
   </body>
 </html>
