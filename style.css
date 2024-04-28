@@ -31,6 +31,14 @@ nav ul li a {
   padding: 10px;
 }
 
+.container ul {
+  padding-left: 20px; /* Adjust the value as needed */
+}
+
+.container ul li {
+  margin-left: 20px; /* Adjust the value as needed */
+}
+
 main {
   padding: 20px;
 }
@@ -50,6 +58,7 @@ section {
 
 h1,
 h2 {
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
